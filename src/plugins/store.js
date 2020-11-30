@@ -95,7 +95,8 @@ export default new Vuex.Store({
     incrementTargetValue,
     selectMode,
     selectPowerSetting,
-    toggleInfoScreen
+    toggleInfoScreen,
+    rebootSystemCommand
   }
 })
 
@@ -426,6 +427,10 @@ function selectPowerSetting(state, { mode, powerOption }) {
 
 function toggleInfoScreen(state) {
   state.showInfoScreen = !state.showInfoScreen
+}
+
+function rebootSystemCommand(){
+  client.publish('hestia/local/cmnd/rebootsystem')
 }
 
 function updateMode(state, mode) {

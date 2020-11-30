@@ -31,6 +31,9 @@
         </tr>
       </table>
     </div>
+    <div class="reboot" >
+        <my-button type="Reboot" @click="rebootSystem">Reboot</my-button>
+    </div>
   </div>
 </template>
 
@@ -70,6 +73,9 @@ export default {
   methods: {
     toggleInfoScreen() {
       this.$store.commit('toggleInfoScreen')
+    },
+    rebootSystem(){
+      this.$store.commit('rebootSystemCommand')
     }
   }
 }
@@ -97,7 +103,7 @@ export default {
 }
 
 .info-table {
-  font-size: 5vw;
+  font-size: 3vw;
   position: absolute;
   text-align: left;
   top: 10vh;
@@ -111,4 +117,16 @@ export default {
 .info-table td:last-child {
   width: 50%;
 }
+
+.reboot{
+  font-size: 4vw;
+  bottom: 15px;
+  left: 15px;
+  position: fixed;
+  padding: 20px 20px;
+  border: 1px solid #ddd;
+  color: #333;
+  background-color:#ff0;
+}
+
 </style>
